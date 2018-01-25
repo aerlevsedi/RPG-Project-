@@ -44,33 +44,40 @@ void open_menu()
 
     znak=getch();
     while(znak!=27){
-        while(znak!=10){
-            if(znak==2){
-                line_number++;
-                if(line_number>=3) line_number=0;
+        if(znak==27){
+            break;
+        }else{
+            while(znak!=10){
+                if(znak==2){
+                    line_number++;
+                    if(line_number>=3) line_number=0;
+                }
+                else if(znak==3){
+                    line_number--;
+                    if(line_number<=-1) line_number=2;
+                }else if(znak==27){
+                    line_number=-42;
+                    break;
+                }
+                write_menu(line_number);
+                znak=getch();
             }
-            else if(znak==3){
-                line_number--;
-                if(line_number<=-1) line_number=2;
+
+            if(line_number==0){
+                start_game(); /*tryb gry*/
+                write_menu(-1);
+                line_number=0;
+            }else if(line_number==1){
+                write_instruction();    /*instrukcja*/
+                write_menu(-1);
+                line_number=0;
+            }else if(line_number==-42){
+                break;
             }
-            printw("line: %d\n", line_number);
-            write_menu(line_number);
+            /*else if(line_number==2)*/ /*poziom trudnosci*/
+
             znak=getch();
         }
-
-        if(line_number==0){
-            start_game(); /*tryb gry*/
-            write_menu(-1);
-            line_number=0;
-        }
-        else if(line_number==1){
-            write_instruction();    /*instrukcja*/
-            write_menu(-1);
-            line_number=0;
-        }
-        /*else if(line_number==2)*/ /*poziom trudnosci*/
-
-        znak=getch();
     }
     endwin();   /*end*/
 }

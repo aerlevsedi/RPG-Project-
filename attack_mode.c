@@ -20,7 +20,18 @@ void write_screen()
     attroff( COLOR_PAIR(7) );
     NL;
 
+    /*
+    user can choose between three action:
+    -knifes
+    -arch
+    -sword
+    -fist
+    each has some value and can hit enemies with such power and take away their hp
+    enemies will get random value of their hit depending on the difficult level choosed by user
+    (this value can be count as random from 1 to number of level or etc)
 
+    after each hit on the screan will apear some information about disease and the counters of hp will change
+    */
 }
 
 int start_attack(int x)
@@ -28,7 +39,7 @@ int start_attack(int x)
     char step;
     enemies_hp=x;
     write_screen();
-    while(1){
+    while(1){   /* it should start a fight and after its finished return result of it and come back to map */
         step=getch();
 
         write_screen();
