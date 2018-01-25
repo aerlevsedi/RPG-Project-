@@ -1,0 +1,6 @@
+#ifndef INSTRUCTION_MODE_H_INCLUDED
+#define INSTRUCTION_MODE_H_INCLUDED
+
+void write_instruction();
+
+#endif // INSTRUCTION_MODE_H_INCLUDED
