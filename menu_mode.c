@@ -2,6 +2,7 @@
 #include "menu_mode.h"
 #include "game_mode.h"
 #include "instruction_mode.h"
+#include "levels_mode.h"
 #define NL printw("\n")
 
 void write_menu(int line)
@@ -41,6 +42,7 @@ void open_menu()
 
     char znak;
     int line_number=0;
+    int lvl=1;
 
     znak=getch();
     while(znak!=27){
@@ -64,17 +66,21 @@ void open_menu()
             }
 
             if(line_number==0){
-                start_game(); /*tryb gry*/
+                start_game(lvl); /*tryb gry*/
                 write_menu(-1);
                 line_number=0;
             }else if(line_number==1){
                 write_instruction();    /*instrukcja*/
                 write_menu(-1);
                 line_number=0;
+            }else if(line_number==2){
+                lvl=level();
+                write_menu(-1);
+                line_number=0;
             }else if(line_number==-42){
                 break;
             }
-            /*else if(line_number==2)*/ /*poziom trudnosci*/
+
 
             znak=getch();
         }

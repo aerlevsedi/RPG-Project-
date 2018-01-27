@@ -100,7 +100,7 @@ CountEnemies find_enemy(int h_x, int h_y)
     return count_enem;
 }
 
-int hero_x=2, hero_y=3, width, height, lifes, enemies, enemies_total, bag_hero, bag_max;
+int hero_x=2, hero_y=3, width, height, lifes, enemies, enemies_total, bag_hero, bag_max, lvl;
 
 void what_effect()
 {
@@ -137,7 +137,7 @@ void what_effect()
     }
 }
 
-void start_game()
+void start_game(int x)
 {
     clear();
 
@@ -146,6 +146,7 @@ void start_game()
     lifes=7;
     enemies=4; enemies_total=4;
     bag_hero=3; bag_max=10;
+    lvl=x;
 
     write_board();
 

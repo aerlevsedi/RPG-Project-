@@ -3,7 +3,7 @@
 #include "instruction_mode.h"
 #define NL printw("\n")
 
-int enemies_hp;
+int enemies_hp, difficulty;
 
 void write_screen()
 {
@@ -34,10 +34,11 @@ void write_screen()
     */
 }
 
-int start_attack(int x)
+int start_attack(int x, int y)
 {
     char step;
     enemies_hp=x;
+    difficulty=y;
     write_screen();
     while(1){   /* it should start a fight and after its finished return result of it and come back to map */
         step=getch();
