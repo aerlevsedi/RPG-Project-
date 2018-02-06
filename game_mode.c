@@ -8,7 +8,7 @@ int board[8][8]={
     {2,2,2,2,2,2,2,2},
     {2,9,1,9,1,1,3,2},
     {2,1,1,1,1,1,1,2},
-    {2,1,7,1,2,1,9,2},
+    {2,1,7,1,2,1,3,2},
     {2,1,1,1,2,1,1,2},
     {2,1,1,1,2,2,1,2},
     {2,1,1,1,1,1,1,2},
@@ -106,9 +106,9 @@ void what_effect()
 {
     struct counter_enemies cur_count=find_enemy(hero_x, hero_y);
     if(cur_count.number>0){
-        printw("\nCOUNTER=%d\n", cur_count.number);
-        getch();
-        if(start_attack(cur_count.hp)==1){ //if hero win delete enemies
+        //printw("\nCOUNTER=%d\n", cur_count.number);
+        //getch();
+        if(start_attack(cur_count.hp, lvl)==1){ //if hero win delete enemies
             for(int i=1; i<=cur_count.number; i++){
                 board[list_enemies[i].y][list_enemies[i].x]=1;
             }

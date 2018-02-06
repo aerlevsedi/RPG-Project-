@@ -16,7 +16,7 @@ void write_battle(int line)
 
     printw("Your lifes: %d, || Enemies to kill: %d/%d, || Bag's volume: %d/%d\n\n", lifes, enemies, enemies_total, bag_hero, bag_max);
     attron( COLOR_PAIR(7) );
-    printw("Your HP: %d, || Enemies' HP: %d", hero_hp, enemies_hp);
+    printw("Your HP: %d, || Enemies' HP: %d, dif=%d", hero_hp, enemies_hp);
     attroff( COLOR_PAIR(7) );
     NL;
 
